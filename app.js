@@ -15,3 +15,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+// module.exports = app;
+app.listen(8080);
