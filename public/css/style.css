@@ -3,12 +3,12 @@ body {
 }
 .container {
     background-color: aliceblue;
-    width: 61%;
+    width: 60%;
 }
 .footer {
     position: fixed;
     bottom: 0;
-    font-size: 14px;
+    font-size: 15px;
     font-style: italic;
     vertical-align: middle;
 }
