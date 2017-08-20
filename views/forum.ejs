@@ -1,14 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title><%= pageTitle %></title>
-    </head>
-    <body>
-        <% include templates/header.ejs %>
-        <h1><%= pageTitle %></h1>
-        <p>
-            This is the forum page!
-        </p>
+<% include templates/header.ejs %>
+    <center>
+        <h3>
+            Welcome to the forum!
+        </h3>
+        <div class="container">
+        <form method="post" name="topicCreate">
+        <table width="100%" align="center" border="2" bordercolor="black" cellpadding="15">
+            <tr>
+                <td colspan="3">
+                    ForexForum
+                    <input id="create_topic" type="submit" name="create_topic" value="create new topic"/>
+                </td>
+            </tr>
+            <% filedata.topics.forEach(function(item){ %>
+                <tr>
+                    <td width="20%">
+                        <label><%=item.user.userName %></label>
+                    </td>
+                    <td width="60%">
+                        <%=item.contents %>
+                    </td>
+                    <td width="20%">
+                        latest: <%=today %>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+        </form>
+        </div>
+    </center>
     </body>
 </html>

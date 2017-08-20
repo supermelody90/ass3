@@ -8,6 +8,8 @@ var forum = require('./routes/forum')
 
 var app = express();
 
+app.locals.filedata = require('./data.json');
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

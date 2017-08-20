@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/supermelody90/ass3#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
