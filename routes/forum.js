@@ -11,8 +11,4 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/forum', function(req, res, next) {
-    
-});
-
 module.exports = router;

@@ -1,0 +1,21 @@
+<% include templates/header.ejs %>
+    <center>
+        <h3>Edit Topic</h3>
+        <form method="post" name="topicSubmit">
+        <div class="container" >
+        <table width="100%" border="2" bordercolor="black" cellpadding="10">
+            <tr>
+                <td width="10%">User:</td>
+                <td width="90%"><input type="text" name="userName" placeholder="User Name"/></td>
+            </tr>
+            <tr>
+                <td width="10%">Topic:</td>
+                <td width="90%"><input type="text" name="contents" placeholder="Topic Contents"/></td>
+            </tr>
+        </table>
+        </div>
+        <br />
+        <input id="topicSubmit" type="submit" name="topicSubmit" value="submit"/>
+        </form>
+    </center>
+<% include templates/footer.ejs %>

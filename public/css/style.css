@@ -5,3 +5,10 @@ body {
     background-color: aliceblue;
     width: 60%;
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 14px;
+    font-style: italic;
+    vertical-align: middle;
+}

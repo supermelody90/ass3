@@ -1,13 +1,17 @@
 {
-    "topics":[
+  "topics": [
     {
-        "commentID": "1",
-        "contents" : "This is the first topic!!",
-        "user" : {
-            "userName":"chao",
-            "userRank":"newbee",
-            "userScore":"15"
-        }
+      "commentID": "1",
+      "contents": "This is the first topic!!",
+      "userName": "chao",
+      "user": {
+        "userRank": "newbee",
+        "userScore": "15"
+      }
+    },
+    {
+      "contents": "sss",
+      "userName": "fff"
     }
-    ]
+  ]
 }
