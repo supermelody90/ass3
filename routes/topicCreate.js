@@ -19,7 +19,6 @@ router.post('/', function(req, res, next) {
         "contents":reqData.contents,
         "userName":reqData.userName
     };
-    // console.log(reqData);
     fileFromData.topics.push(newData);
     console.log(fileFromData);
     fs.writeFileSync('./data.json', JSON.stringify(fileFromData,null,2), 'utf8');
