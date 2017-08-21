@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
         pageTitle:'ForexForum'
     });
 });
-
+//provide an interface 
 module.exports = router;
 
-//api for news http://finance.yahoo.com/rss/topstories
+
