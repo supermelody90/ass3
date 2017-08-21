@@ -4,7 +4,6 @@
             Welcome to the our group's forum!
         </h3>
         <div class="container">
-        <%# <form action="" method="post" name="topicCreate">%>
         <table width="100%" border="2" bordercolor="red" cellpadding="10">
             <tr>
                 <td colspan="3">
@@ -14,19 +13,12 @@
             </tr>
             <% filedata.topics.forEach(function(item){ %>
                 <tr>
-                    <td width="22%">
-                        <label><%=item.userName %></label>
-                    </td>
-                    <td width="62%">
-                        <%=item.contents %>
-                    </td>
-                    <td width="22%">
-                        latest:
-                    </td>
+                    <td width="22%"> <label> <%=item.userName %> </label></td>
+                    <td width="62%"> <%=item.contents %> </td>
+                    <td width="22%"> latest: </td>
                 </tr>
             <% }); %>
         </table>
-        <%# </form>%>
         </div>
     </center>
 <% include templates/footer.ejs %>
