@@ -1,11 +1,11 @@
 var mongoose  = require('mongoose');
 var BaseModel = require("./base_model");
-var renderHelper = require('../common/render_helper');
+// var renderHelper = require('../common/render_helper');
 var Schema    = mongoose.Schema;
 var utility   = require('utility');
 var _ = require('lodash');
 
-var UserSchema = new Schema({
+var userSchema = new Schema({
   name: { type: String},
   loginname: { type: String},
   pass: { type: String },
@@ -45,11 +45,11 @@ var UserSchema = new Schema({
   accessToken: {type: String},
 });
 
-UserSchema.plugin(BaseModel);
-UserSchema.virtual('avatar_url').get(function () {
+userSchema.plugin(BaseModel);
+userSchema.virtual('avatar_url').get(function () {
   var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=48');
 
-  // www.gravatar.com 
+  // www.gravatar.com
   url = url.replace('www.gravatar.com', 'gravatar.com');
 
   // 让协议自适应 protocol，使用 `//` 开头
@@ -65,21 +65,21 @@ UserSchema.virtual('avatar_url').get(function () {
   return url;
 });
 
-UserSchema.virtual('isAdvanced').get(function () {
+userSchema.virtual('isAdvanced').get(function () {
   // 积分高于 700 则认为是高级用户
   return this.score > 700 || this.is_star;
 });
 
-UserSchema.index({loginname: 1}, {unique: true});
-UserSchema.index({email: 1}, {unique: true});
-UserSchema.index({score: -1});
-UserSchema.index({githubId: 1});
-UserSchema.index({accessToken: 1});
+userSchema.index({loginname: 1}, {unique: true});
+userSchema.index({email: 1}, {unique: true});
+userSchema.index({score: -1});
+userSchema.index({githubId: 1});
+userSchema.index({accessToken: 1});
 
-UserSchema.pre('save', function(next){
+userSchema.pre('save', function(next){
   var now = new Date();
   this.update_at = now;
   next();
 });
 
-mongoose.model('User', UserSchema);
+mongoose.model('User', userSchema);
