@@ -47,10 +47,7 @@ var userSchema = new Schema({
 
 userSchema.plugin(BaseModel);
 userSchema.virtual('avatar_url').get(function () {
-  var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=48');
-
-  // www.gravatar.com
-  url = url.replace('www.gravatar.com', 'gravatar.com');
+  var url = this.avatar || ('http://127.0.0.1/' + utility.md5(this.email.toLowerCase()) + '?size=48');
 
   // 让协议自适应 protocol，使用 `//` 开头
   if (url.indexOf('http:') === 0) {
