@@ -3,14 +3,41 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+var app = express();
+
+//connect to database
+mongoose.connect('mongodb://localhost/ass3');
+var db = mongoose.connection;
+
+//handle database err
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+
+});
+
+//use sessions for tracking login
+app.use(session({
+    secret : 'default',
+    resave : false,
+    saveUninitialized : true,
+    store : new MongoStore({
+        mongooseConnection: db
+    })
+}));
 
 //import the url routing models
 var routes = require('./routes/index');
 var news = require('./routes/news');
 var forum = require('./routes/forum');
 var topicCreate = require('./routes/topicCreate');
-
-var app = express();
+var account = require('./routes/account');
+var register = require('./routes/register');
+var login = require('./routes/login');
+var logout = require('./routes/logout');
 
 //the global data for reading data from file
 app.locals.filedata = require('./data.json');
@@ -27,6 +54,10 @@ app.use('/', routes);
 app.use('/news', news);
 app.use('/forum', forum);
 app.use('/topicCreate', topicCreate);
+app.use('/account', account);
+app.use('/register', register);
+app.use('/login', login);
+app.use('/logout', logout);
 
 app.use(function(req, res, next) {
     var err = new Error('not found');

@@ -1,0 +1,13 @@
+<% include templates/header.ejs %>
+    <center>
+        <% if(isLoggedin) { %>
+            <h3> Your Profile :</h3>
+            <h4> Username : <%=userName %> </h4>
+            <h4> Email : <%=userEmail %> </h4>
+            <br />
+            <button type="button"><a href="/logout">log out</a></button>
+        <%} else { %>
+            <h3>Please <a href='/login'>login</a> or <a href='/register'>register</a></h3>
+        <%}%>
+    </center>
+<% include templates/footer.ejs %>
