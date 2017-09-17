@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const validator = require('express-validator');
+const helmet = require('helmet');
 
 var app = express();
 
@@ -50,6 +52,9 @@ app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/public'));
+app.use(validator());
+app.use(helmet());
+
 app.use('/', routes);
 app.use('/news', news);
 app.use('/forum', forum);
