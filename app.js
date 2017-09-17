@@ -54,6 +54,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/public'));
 app.use(validator());
 app.use(helmet());
+//the xssFilter helps to protect against XSS attack
+app.use(helmet.xssFilter());
+//xframe is used to protect against clickjacking attack
+app.use(helmet.frameguard('deny'));
+app.use(helmet.hidePoweredBy());
 
 app.use('/', routes);
 app.use('/news', news);

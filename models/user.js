@@ -102,6 +102,15 @@ UserSchema.pre('save', function (next) {
     user.password = hash;
     next();
   })
+  if(user.passwordConf) {
+      bcrypt.hash(user.passwordConf, 10, function(err, hash) {
+          if (err) {
+              return next(err);
+          }
+          user.passwordConf = hash;
+          next();
+      })
+  }
 });
 
 var User = mongoose.model('User', UserSchema);
