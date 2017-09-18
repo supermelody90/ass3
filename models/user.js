@@ -94,24 +94,36 @@ UserSchema.statics.authenticate = function (email, password, callback) {
 
 //hashing a password before saving it to the database
 UserSchema.pre('save', function (next) {
-  var user = this;
-  bcrypt.hash(user.password, 10, function (err, hash) {
-    if (err) {
-      return next(err);
-    }
-    user.password = hash;
-    next();
-  })
-  if(user.passwordConf) {
-      bcrypt.hash(user.passwordConf, 10, function(err, hash) {
-          if (err) {
-              return next(err);
-          }
-          user.passwordConf = hash;
-          next();
-      })
-  }
+    var user = this;
+    bcrypt.hash(user.password, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.password = hash;
+        next();
+    });
+  // if(user.passwordConf) {
+        // bcrypt.hash(user.passwordConf, 10, function(err, hash) {
+        //     if (err) {
+        //         return next(err);
+        //     }
+        //     user.passwordConf = hash;
+        //     next();
+        // });
+  // }
 });
+
+UserSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.passwordConf, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.passwordConf = hash;
+        next();
+    });
+});
+
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

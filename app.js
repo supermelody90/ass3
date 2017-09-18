@@ -59,6 +59,7 @@ app.use(helmet.xssFilter());
 //xframe is used to protect against clickjacking attack
 app.use(helmet.frameguard('deny'));
 app.use(helmet.hidePoweredBy());
+app.use(helmet.noCache());
 
 app.use('/', routes);
 app.use('/news', news);
