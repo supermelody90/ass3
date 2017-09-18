@@ -2,8 +2,9 @@ var mongoose  = require('mongoose');
 var BaseModel = require("./baseModel");
 var Schema    = mongoose.Schema;
 var utility   = require('utility');
-var bcrypt = require('bcrypt');
 var _ = require('lodash');
+var bcrypt = require('bcrypt');
+
 
 var UserSchema = new Schema({
     email: {
@@ -102,15 +103,6 @@ UserSchema.pre('save', function (next) {
         user.password = hash;
         next();
     });
-  // if(user.passwordConf) {
-        // bcrypt.hash(user.passwordConf, 10, function(err, hash) {
-        //     if (err) {
-        //         return next(err);
-        //     }
-        //     user.passwordConf = hash;
-        //     next();
-        // });
-  // }
 });
 
 UserSchema.pre('save', function (next) {

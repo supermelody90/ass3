@@ -16,6 +16,10 @@
     {
       "contents": "new topic",
       "userName": "Eric"
+    },
+    {
+      "contents": "<script>alert('haha')</script>",
+      "userName": "whatever"
     }
   ]
 }
