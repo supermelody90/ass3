@@ -7,5 +7,5 @@ router.get('/', function(req, res, next) {
         pageTitle:'ForexForum'
     });
 });
-
+//provide an interface 
 module.exports = router;

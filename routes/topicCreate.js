@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
+//receive data from form then write them into file
 router.post('/', function(req, res, next) {
     var reqData = req.body;
     delete reqData.topicSubmit;
@@ -26,5 +27,5 @@ router.post('/', function(req, res, next) {
         pageTitle:'ForexForum'
     });
 });
-
+//provide an interface 
 module.exports = router;
