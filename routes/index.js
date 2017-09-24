@@ -4,8 +4,8 @@ var router = express.Router();
 //get homepage
 router.get('/', function(req, res, next) {
     res.render('index', {
-        pageTitle:'ForexForum'
+        
     });
 });
-//provide an interface 
+//provide an interface
 module.exports = router;

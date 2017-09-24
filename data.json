@@ -20,6 +20,10 @@
     {
       "contents": "<script>alert('haha')</script>",
       "userName": "whatever"
+    },
+    {
+      "contents": "",
+      "userName": ""
     }
   ]
 }

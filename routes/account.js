@@ -19,13 +19,11 @@ router.get('/', function(req, res, next) {
                 var err = new Error('Not a member, please login or register');
                 err.status = 400;
                 return res.render('account', {
-                    pageTitle: 'ForexForum',
                     isLoggedin: isLoggedin,
                 });
                 // return next(err);
             } else {
                 return res.render('account', {
-                    pageTitle: 'ForexForum',
                     isLoggedin: isLoggedin,
                     userName: user.username,
                     userEmail: user.email

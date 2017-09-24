@@ -4,7 +4,7 @@ var User = require('../models/user');
 
 router.get('/', function(req, res, next) {
     res.render('register', {
-        pageTitle : "ForexForum"
+        
     });
 })
 

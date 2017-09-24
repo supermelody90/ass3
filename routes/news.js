@@ -2,22 +2,32 @@ const express = require('express');
 var router = express.Router();
 const fetch = require('node-fetch');
 
+var Client = require('node-rest-client').Client;
+var client = new Client();
+
+const SourceURL = "https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=4e96f5858cf740708b136911df132a1e";
+
 //get homepage
 router.get('/', function(req, res, next) {
 
-    fetch('http://finance.yahoo.com/rss/topstories')
-    .then(function(res) {
-        return res.json();
-    }).then(function(json) {
-        console.log("!!!!!!!!!Data received: ");
-        console.log(json);
+    let articleTitle;
+    let articleDescription;
+    let imgSrc;
+
+    client.get(SourceURL, function(data, response) {
+        var articlesArray = data.articles;
+
+        articleTitle = articlesArray[0].title;
+        articleDescription = articlesArray[0].description;
+        imgSrc = articlesArray[0].urlToImage;
+
+        res.render('news', {
+            newsTitle: articleTitle,
+            newsDescription: articleDescription,
+            newsImage: imgSrc
+        });
     });
 
-    res.render('news', {
-        pageTitle:'ForexForum'
-    });
 });
 
 module.exports = router;
-
-//api for news http://finance.yahoo.com/rss/topstories

@@ -1,7 +1,16 @@
 <% include templates/header.ejs %>
     <center>
         <h3>
-            Forex News!
+            News!
         </h3>
+        <h4><%=newsTitle %></h4>
+        <br />
+        <p>
+            <%=newsDescription %>
+        </p>
+        <br />
+        <p>
+            <img src=<%=newsImage%> />
+        </p>
     </center>
 <% include templates/footer.ejs %>
