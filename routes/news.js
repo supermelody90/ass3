@@ -3,7 +3,7 @@ var router = express.Router();
 const fetch = require('node-fetch');
 
 var Client = require('node-rest-client').Client;
-var client = new Client();
+var clients = new Client();
 
 const SourceURL = "https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=4e96f5858cf740708b136911df132a1e";
 
@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
     let articleDescription;
     let imgSrc;
 
-    client.get(SourceURL, function(data, response) {
+    clients.get(SourceURL, function(data, response) {
         var articlesArray = data.articles;
 
         articleTitle = articlesArray[0].title;
