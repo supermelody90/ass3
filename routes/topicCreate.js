@@ -8,7 +8,7 @@ var fileFromData = require('../data.json');
 //get homepage
 router.get('/', function(req, res, next) {
     res.render('topicCreate', {
-        
+
     });
 });
 
@@ -18,14 +18,13 @@ router.post('/', function(req, res, next) {
     delete reqData.topicSubmit;
     var newData = {
         "contents":reqData.contents,
-        "userName":reqData.userName
+        "title":reqData.title
     };
     fileFromData.topics.push(newData);
-    // console.log(fileFromData);
     fs.writeFileSync('./data.json', JSON.stringify(fileFromData,null,2), 'utf8');
     res.render('forum', {
         pageTitle:'ForexForum'
     });
 });
-//provide an interface
+
 module.exports = router;
