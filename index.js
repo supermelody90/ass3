@@ -70,15 +70,14 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
 
+const port = process.env.PORT || 8080;
+
+app.listen(port,() => {
+    console.log("running");
+});
+
 app.use(function(req, res, next) {
     var err = new Error('not found');
     err.status = 404;
     next(err);
-});
-
-const port = process.env.PORT || 8080;
-
-
-app.listen(port, () => {
-
 });
