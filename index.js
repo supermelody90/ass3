@@ -40,6 +40,7 @@ var account = require('./routes/account');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+var passwordReset = require('./routes/passwordReset');
 
 //the global data for reading data from file
 app.locals.filedata = require('./data.json');
@@ -69,6 +70,7 @@ app.use('/account', account);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/passwordReset', passwordReset);
 
 const port = process.env.PORT || 8080;
 

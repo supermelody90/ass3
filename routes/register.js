@@ -4,20 +4,28 @@ var User = require('../models/user');
 
 router.get('/', function(req, res, next) {
     res.render('register', {
-        
+        errorMessage:''
     });
 })
 
 router.post('/', function(req, res, next) {
+
+    var errorMessage = '';
     //make sure the user types the same password twice
     if (req.body.password !== req.body.passwordConf) {
-        var err = new Error('passwords dont match');
-        err.status = 400;
-        res.send("passwords don't match");
-        return next(err);
+        errorMessage = "passwords don't match";
+        res.render('register',{
+            errorMessage:errorMessage
+        });
     }
 
     if (req.body.email && req.body.username && req.body.password && req.body.passwordConf) {
+        if (!req.body.email.includes('.com') || !req.body.email.includes('@')) {
+            errorMessage = "Incorrect email address";
+            res.render('register',{
+                errorMessage:errorMessage
+            });
+        }
         var userData = {
             email : req.body.email,
             username : req.body.username,
@@ -35,9 +43,10 @@ router.post('/', function(req, res, next) {
             }
         });
     } else {
-        var err = new Error('All fields required!');
-        err.status = 400;
-        return next(err);
+        errorMessage = 'All fields required!';
+        res.render('register',{
+            errorMessage:errorMessage
+        });
     }
 });
 
