@@ -76,4 +76,4 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-app.listen(80);
+module.exports = app;
