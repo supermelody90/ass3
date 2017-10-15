@@ -1,4 +1,5 @@
 //import the packages
+const cool = require('cool-ascii-faces');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -77,8 +78,13 @@ app.use(function(req, res, next) {
 });
 
 const port = process.env.PORT || 8080;
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
+
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  
 });
 
 module.exports = app;
