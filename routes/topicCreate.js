@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var reqData = req.body;
     delete reqData.topicSubmit;
+    
     var newData = {
         "contents":reqData.contents,
         "title":reqData.title
