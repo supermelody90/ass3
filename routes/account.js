@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
         console.log("this block has been executed!!!");
     }
 
-
+    //Judge the current visitor is a user or a guest based on session
     User.findById(req.session.userId).exec(function (error, user) {
         if (error) {
             return next(error);
@@ -21,7 +21,6 @@ router.get('/', function(req, res, next) {
                 return res.render('account', {
                     isLoggedin: isLoggedin,
                 });
-                // return next(err);
             } else {
                 return res.render('account', {
                     isLoggedin: isLoggedin,
@@ -34,10 +33,10 @@ router.get('/', function(req, res, next) {
 
 });
 
-// GET for logout logout
+// logout
 router.get('/logout', function (req, res, next) {
   if (req.session) {
-      // delete session object
+      // delete user session
       req.session.destroy(function (err) {
           if (err) {
               return next(err);

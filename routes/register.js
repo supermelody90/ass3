@@ -20,6 +20,7 @@ router.post('/', function(req, res, next) {
     }
 
     if (req.body.email && req.body.username && req.body.password && req.body.passwordConf) {
+        //validate email input
         if (!req.body.email.includes('.com') || !req.body.email.includes('@')) {
             errorMessage = "Incorrect email address";
             res.render('register',{

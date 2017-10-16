@@ -16,10 +16,11 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var reqData = req.body;
     delete reqData.topicSubmit;
-    
+
     var newData = {
         "contents":reqData.contents,
-        "title":reqData.title
+        "title":reqData.title,
+        "userId": req.session.userId
     };
     fileFromData.topics.push(newData);
     fs.writeFileSync('./data.json', JSON.stringify(fileFromData,null,2), 'utf8');

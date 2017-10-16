@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var errorMessage = '';
 
+    //first validate if the input is empty
     if (req.body.logemail && req.body.logpassword){
         User.authenticate(req.body.logemail, req.body.logpassword, function(error, user) {
             if (error || !user) {

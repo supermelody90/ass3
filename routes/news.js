@@ -7,7 +7,6 @@ var clients = new Client();
 
 const SourceURL = "https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=4e96f5858cf740708b136911df132a1e";
 
-//get homepage
 router.get('/', function(req, res, next) {
 
     let articleTitle;
