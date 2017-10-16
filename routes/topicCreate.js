@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
     var newData = {
         "contents":reqData.contents,
         "title":reqData.title,
-        "userId": req.session.userId
+        "username": req.session.username
     };
     fileFromData.topics.push(newData);
     fs.writeFileSync('./data.json', JSON.stringify(fileFromData,null,2), 'utf8');

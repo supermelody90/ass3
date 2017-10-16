@@ -1,25 +1,14 @@
 {
   "topics": [
     {
-      "commentID": "1",
-      "contents": "This is the first topic!!",
-      "userName": "chao",
-      "user": {
-        "userRank": "newbee",
-        "userScore": "15"
-      }
+      "contents": "aaaaa",
+      "title": "aa",
+      "username": "a9"
     },
     {
-      "contents": "sss",
-      "userName": "fff"
-    },
-    {
-      "contents": "new topic",
-      "userName": "Eric"
-    },
-    {
-      "contents": "<script>alert('haha')</script>",
-      "userName": "whatever"
+      "contents": "there it is",
+      "title": "hello",
+      "username": "test"
     }
   ]
 }

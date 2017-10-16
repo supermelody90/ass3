@@ -39,6 +39,7 @@ router.post('/', function(req, res, next) {
                 return next(err);
             } else {
                 req.session.userId = user._id;
+                req.session.username = user.username;
                 console.log(req.session.userId);
                 return res.redirect('/account');
             }

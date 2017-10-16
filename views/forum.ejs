@@ -12,9 +12,9 @@
             </tr>
             <% filedata.topics.forEach(function(item){ %>
                 <tr>
-                    <td width="22%"> <label> <%=item.userName %> </label></td>
+                    <td width="22%"> <label> <%=item.title %> </label></td>
                     <td width="62%"> <%=item.contents %> </td>
-                    <td width="21%"> latest: </td>
+                    <td width="21%"> from: <%=item.username %></td>
                 </tr>
             <% }); %>
         </table>
